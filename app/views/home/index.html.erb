@@ -1,0 +1,28 @@
+<h2>Our Products</h2>
+<% @products.each do |product| %>
+	<div class="product clearfix">
+		<h3><%= product.title %></h3>
+
+		<div class="img-outer">
+			<%= image_tag(product.images[0].src) %>
+		</div>
+
+		<table>
+			<% product.attributes[:variants].each do |variant| %>
+				<tr>
+					<td>
+						<b><%= variant.title %> - <%= variant.id %></b>
+					</td>
+					<td>
+						Quantity: 
+						<% if variant.inventory_management != nil %>
+							<%= variant.inventory_quantity %>
+						<% else %>
+							unlimited
+						<% end %>
+					</td>
+				</tr>
+			<% end %>
+		</table>
+	</div>
+<% end %>
