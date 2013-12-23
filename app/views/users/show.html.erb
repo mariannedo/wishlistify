@@ -1,1 +1,5 @@
 <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+<% @user_products.each do |p| %>
+	<% product = Product.find(p.product_id) %>
+	<%= product.title %>
+<% end %>

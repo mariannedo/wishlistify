@@ -10,10 +10,5 @@ class CreateProducts < ActiveRecord::Migration
 
       t.timestamps
     end
-
-    create_table :users_products do |t|
-      t.belongs_to :user
-      t.belongs_to :product
-    end
   end
 end
