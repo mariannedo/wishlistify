@@ -4,18 +4,35 @@
 	<tr>
 		<th>Product</th>
 		<th># in stock</th>
-		<th>Purchase</th>
+		<th>Price</th>
+		<th></th>
+		<th></th>
 	</tr>
-	<% @user_products.each do |p| %>
+	<% @user_products.each_with_index do |p, index| %>
 		<% product = Product.find(p.product_id) %>
-		<tr>
-			<td><%= product.title %></td>
-			<td class="center"><%= product.quantity %></td>
+		<tr<% if index % 2 != 0 %> class="odd"<% end %>>
+			<td>
+				<div class="img-outer">
+					<img src="<%= product.image_url %>" alt="<%= product.title %>"/>
+				</div>
+				<%= product.title %>
+			</td>
 			<td class="center">
-				<form action="http://outdoor-apparel.myshopify.com/cart/add" method="post">
-					<input type="hidden" name="id" value="<%= product.variant_id %>"/>
-					<input type="submit" value="Buy"/>
-				</form>
+				<% if product.quantity > 0 %>
+					<%= product.quantity %>
+				<% else %>
+					<span class="sold-out">Sold Out</span>
+				<% end %>
+			</td>
+			<td class="center">$<%= product.price %></td>
+			<td class="center"><a href="<%= store_url %>products/<%= product.handle %>">View in store</a></td>
+			<td class="center">
+				<% if product.quantity > 0 %>
+					<form action="<%= store_url %>cart/add" method="post">
+						<input type="hidden" name="id" value="<%= product.variant_id %>"/>
+						<input type="submit" value="Buy"/>
+					</form>
+				<% end %>
 			</td>
 		</tr>
 	<% end %>

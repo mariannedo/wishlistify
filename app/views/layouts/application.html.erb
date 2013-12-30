@@ -11,7 +11,11 @@
 	<header id="Header">
 		<div class="container">
 			<h1><%= link_to "Wishlistify", root_url %></h1>
-
+		</div>
+	</header>
+	<nav id="Menu">
+		<div class="container">
+			<a href="<%= store_url %>">Visit Outdoor Apparel Store</a>
 			<div id="Search">
 				<%= form_tag '/search', method: :get do %>
 				<%= text_field_tag 'q' %>
@@ -19,7 +23,7 @@
 				<% end %>
 			</div>
 		</div>
-	</header>
+	</nav>
 	<section id="Main">
 		<div class="container">
 			<%= yield %>

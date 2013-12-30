@@ -2,6 +2,7 @@ class CreateProducts < ActiveRecord::Migration
   def change
     create_table :products do |t|
       t.string :title
+      t.string :handle
       t.string :image_url
       t.string :price
       t.boolean :track_quantity

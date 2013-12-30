@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
           else
             track_inventory = false
           end
-          new_product = Product.create(title: product.title + ' ' + variant.title, variant_id: variant.id, price: variant.price, track_quantity: track_inventory, quantity: variant.inventory_quantity, image_url: product.images[0].src)
+          new_product = Product.create(title: product.title + ' - ' + variant.title, variant_id: variant.id, price: variant.price, track_quantity: track_inventory, quantity: variant.inventory_quantity, image_url: product.images[0].src, handle: product.handle)
         end
       end
     end

@@ -11,18 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131222165909) do
-
-  create_table "products", force: true do |t|
-    t.string   "title"
-    t.string   "image_url"
-    t.string   "price"
-    t.boolean  "track_quantity"
-    t.integer  "quantity"
-    t.integer  "variant_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 20131230185814) do
 
   create_table "users", force: true do |t|
     t.string   "first_name"
@@ -31,6 +20,18 @@ ActiveRecord::Schema.define(version: 20131222165909) do
     t.string   "password_digest"
     t.string   "customer_id"
     t.boolean  "is_admin"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "products", force: true do |t|
+    t.string "title"
+    t.string "handle"
+    t.string "image_url"
+    t.string "price"
+    t.boolean "track_quantity"
+    t.integer "quantity"
+    t.integer "variant_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

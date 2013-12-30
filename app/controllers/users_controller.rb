@@ -8,7 +8,6 @@ class UsersController < ApplicationController
   end
   def show
   	@user = User.find params[:id]
-  	#@user_products = UsersProduct.find_by user_id: params[:id]
-  	@user_products = UsersProduct.all
+    @user_products = UsersProduct.where(:user_id => params[:id]).all
   end
 end
