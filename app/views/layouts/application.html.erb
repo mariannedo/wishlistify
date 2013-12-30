@@ -11,6 +11,13 @@
 	<header id="Header">
 		<div class="container">
 			<h1><%= link_to "Wishlistify", root_url %></h1>
+
+			<div id="Search">
+				<%= form_tag '/search', method: :get do %>
+				<%= text_field_tag 'q' %>
+				<%= submit_tag "Search" %>
+				<% end %>
+			</div>
 		</div>
 	</header>
 	<section id="Main">

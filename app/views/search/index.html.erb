@@ -1,13 +1,11 @@
-<h2><%= @user.first_name %> <%= @user.last_name %>'s List</h2>
-
+<h2>Search results for "<%= @query %>"</h2>
 <table id="Products">
 	<tr>
 		<th>Product</th>
 		<th># in stock</th>
 		<th>Purchase</th>
 	</tr>
-	<% @user_products.each do |p| %>
-		<% product = Product.find(p.product_id) %>
+	<% @products.each do |product| %>
 		<tr>
 			<td><%= product.title %></td>
 			<td class="center"><%= product.quantity %></td>
