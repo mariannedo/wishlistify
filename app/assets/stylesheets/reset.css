@@ -62,3 +62,7 @@ input[type="text"].error, input[type="email"].error, input[type="password"].erro
 .clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; overflow: hidden; }
 .clearfix:after { clear: both; }
 .clearfix { zoom: 1; }
+
+.center { 
+	text-align: center;
+}
