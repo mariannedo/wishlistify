@@ -1,3 +1,19 @@
+<h2>Fake Login Form</h2>
+
+<form action="<%= store_url %>account/login" method="post">
+	<div class="form-field">
+		<label>Email address</label>
+		<input name="customer[email]" type="text" value=""/>
+	</div>
+	<div class="form-field">
+		<label>Password</label>
+		<input name="customer[password]" type="password" value=""/>
+	</div>
+	<input type="submit" class="btn" value="Submit"/>
+</form>
+
+<p>&nbsp;</p>
+
 <h2>Inventory</h2>
 <% @products.each do |product| %>
 	<div class="product clearfix">
