@@ -4,9 +4,6 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.1'
 
 group :development do 
-	gem 'guard-livereload', require: false
-	gem 'rack-livereload'
-	# Use sqlite3 as the database for Active Record
 	gem 'sqlite3'
 end
 
