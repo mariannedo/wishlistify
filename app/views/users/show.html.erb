@@ -8,6 +8,7 @@
 			<th>Price</th>
 			<th></th>
 			<th></th>
+			<th></th>
 		</tr>
 		<% @user_products.each_with_index do |p, index| %>
 			<% product = Product.find_by variant_id: p.product_id %>
@@ -34,6 +35,9 @@
 							<input type="submit" value="Buy"/>
 						</form>
 					<% end %>
+				</td>
+				<td>
+					<%= link_to 'Remove', users_product_path(p.id, :cid => @user.customer_id), :method => :delete, :class => "remove", :confirm => "Are you sure ?"%>
 				</td>
 			</tr>
 		<% end %>

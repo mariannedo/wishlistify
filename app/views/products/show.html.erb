@@ -3,7 +3,13 @@
 	<p>You just added <b><%= added_product.title %></b> to your wishlist! </p>
 <% end %>
 
+<% @user_wishes.each_with_index do |w, indx| %>
+	<%= w.product_id %> - <%= indx %> <br/>
+<% end %>
+
 <%= @found_product %>
+
+<br/>
 
 <p><a href="/wishlist/<%= @customer_id %>">View your wishlist &rarr;</a></p>
 

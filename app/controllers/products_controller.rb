@@ -8,29 +8,29 @@ class ProductsController < ApplicationController
 	check_for_product
   end
   def check_for_product
-  	user_wishes = UsersProduct.where(:user_id => params[:cid]).all
+  	@user_wishes = UsersProduct.where(:user_id => params[:cid]).all
 
-  	if user_wishes.size > 0 
+  	if @user_wishes.size > 0 
   		@found_product = false
-	  	user_wishes.each do |w, index|
+  		
+	  	@user_wishes.each_with_index do |w, index|
 	  		if w.product_id == params[:id]
 	  			@found_product = true
 	  		end
-			if index == user_wishes.size - 1 
+			if index == @user_wishes.size - 1 
 				if @found_product != true
-					redirect_to '/'
+					add_product
 			  	else
 			  		redirect_to '/wishlist/' + params[:cid]
 			  	end
 			end
 	  	end
 	else 
-		add
+		add_product
 	end
   end
 
-  def add
+  def add_product
   	@new_wish = UsersProduct.create(product_id: params[:id], user_id: params[:cid])
-  	redirect_to '/wishlist/' + params[:cid]
   end
 end

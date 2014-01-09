@@ -1,44 +1,15 @@
-<h2>Fake Login Form</h2>
-
-<form action="<%= store_url %>account/login" method="post">
-	<div class="form-field">
-		<label>Email address</label>
-		<input name="customer[email]" type="text" value=""/>
-	</div>
-	<div class="form-field">
-		<label>Password</label>
-		<input name="customer[password]" type="password" value=""/>
-	</div>
-	<input type="submit" class="btn" value="Submit"/>
-</form>
-
-<p>&nbsp;</p>
-
-<h2>Inventory</h2>
-<% @products.each do |product| %>
-	<div class="product clearfix">
-		<h3><%= product.title %></h3>
-
-		<div class="img-outer">
-			<%= image_tag(product.images[0].src) %>
+<div class="form-outer">
+	<h2>Log in to view your wishlist</h2>
+	<form action="<%= store_url %>account/login?return_to=http://localhost:3000" id="ShopifyLogin" method="post">
+		<div class="form-field">
+			<label>Email address</label>
+			<input name="customer[email]" type="text" value=""/>
 		</div>
-
-		<table>
-			<% product.attributes[:variants].each do |variant| %>
-				<tr>
-					<td>
-						<b><%= variant.title %> - <%= variant.id %></b>
-					</td>
-					<td>
-						Quantity: 
-						<% if variant.inventory_management != nil %>
-							<%= variant.inventory_quantity %>
-						<% else %>
-							unlimited
-						<% end %>
-					</td>
-				</tr>
-			<% end %>
-		</table>
-	</div>
-<% end %>
+		<div class="form-field">
+			<label>Password</label>
+			<input name="customer[password]" type="password" value=""/>
+		</div>
+		<input type="hidden" name="checkout_url" value="http://localhost:3000">
+		<input type="submit" class="btn" value="Submit"/>
+	</form>
+</div>
