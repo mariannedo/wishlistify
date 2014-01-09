@@ -8,6 +8,5 @@ Wishlistify::Application.routes.draw do
   #get "/auth/:provider", to: "sessions#create"
   resources :users, path: '/wishlist'
   resources :products, path: '/add'
-  #resources :users_products, only: :destroy
   resources :users_products, only: :destroy
 end

@@ -4,7 +4,7 @@
 <% end %>
 
 <% @user_wishes.each_with_index do |w, indx| %>
-	<%= w.product_id %> - <%= indx %> <br/>
+	<%= w.product_id %> / <%= params[:id] %> <br/>
 <% end %>
 
 <%= @found_product %>

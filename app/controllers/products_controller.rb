@@ -12,13 +12,13 @@ class ProductsController < ApplicationController
 
   	if @user_wishes.size > 0 
   		@found_product = false
-  		
+
 	  	@user_wishes.each_with_index do |w, index|
-	  		if w.product_id == params[:id]
+	  		if(params[:id].to_i == w.product_id.to_i)
 	  			@found_product = true
 	  		end
 			if index == @user_wishes.size - 1 
-				if @found_product != true
+				if @found_product == false
 					add_product
 			  	else
 			  		redirect_to '/wishlist/' + params[:cid]
