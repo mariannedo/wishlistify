@@ -3,6 +3,6 @@ module ApplicationHelper
     	store_url = "http://outdoor-apparel.myshopify.com/"
   	end
   	def app_url
-  		app_url = "http://localhost:3000"
+  		app_url = "http://immense-shelf-6174.herokuapp.com"
   	end
 end
