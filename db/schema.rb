@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20140110010822) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
-    t.integer  "customer_id", limit: 255
+    t.integer  "customer_id"
     t.boolean  "is_admin"
     t.datetime "created_at"
     t.datetime "updated_at"
