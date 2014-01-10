@@ -15,7 +15,4 @@
 /log/*.log
 /tmp
 
-#Ignore set_shop
-/config/initializers/set_shop.rb
-
 #Ignore models later?
