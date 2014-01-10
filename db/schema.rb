@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131230185814) do
+ActiveRecord::Schema.define(version: 20140110010822) do
 
   create_table "products", force: true do |t|
     t.string   "title"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20131230185814) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
-    t.string   "customer_id"
+    t.integer  "customer_id", limit: 255
     t.boolean  "is_admin"
     t.datetime "created_at"
     t.datetime "updated_at"
