@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
 
   end
   def show 
+  	update_product_inventory
   	@customer_id = params[:cid]
 	@added_product = Product.where(:variant_id => params[:id]).all
 	check_for_product

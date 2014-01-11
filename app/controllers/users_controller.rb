@@ -19,6 +19,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    update_product_inventory
   	@user = User.find_by customer_id: params[:id]
     if(@user) 
       @user_products = UsersProduct.where(:user_id => params[:id]).all
