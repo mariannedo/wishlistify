@@ -27,8 +27,10 @@
 							<% if(product.variant_id == line_item.variant_id) %>
 							<% ordered = true %>
 							<span class="ordered">
+								<a href="<%= store_url %>account/orders/<%= order.token %>">
 								<% time = DateTime.iso8601(order.created_at) %>
 								<%= time.strftime("Ordered on %m/%d/%Y") %>
+								</a>
 							</span>
 							<% end %>
 						<% end %>

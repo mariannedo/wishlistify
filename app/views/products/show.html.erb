@@ -1,8 +1,5 @@
 <div id="AddedMsg">
-<% @added_product.each do |added_product| %>
-	<p>You just added <b><%= added_product.title %></b> to your wishlist! </p>
-<% end %>
+	<p>You just added <b><%= @added_product.title %></b> to your wishlist! </p>
 
-<p><a href="/wishlist/<%= @customer_id %>">View your wishlist &rarr;</a></p>
-
+	<p><a href="/wishlist/<%= @customer_id %>">View your wishlist &rarr;</a></p>
 </div>

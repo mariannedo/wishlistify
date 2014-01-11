@@ -156,11 +156,19 @@ div.product {
 .remove, 
 .remove:hover { 
 	color: #990000;
-	font-size: 0.9em; 
+	font-size: 0.9em;
 }
 .ordered { 
 	display: block; 
 	font-style: italic; 
 	font-size: 0.9em; 
 	margin-top: 5px; 
+}
+
+/***** FLASH NOTICE / ALERT *****/ 
+
+.notice, 
+.alert { 
+	font-style: italic; 
+	margin-bottom: 2em; 
 }

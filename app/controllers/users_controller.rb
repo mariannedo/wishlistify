@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    redirect_to '/'
+    redirect_to root_url
   end
   def new
     @user = User.new customer_id: params[:id]

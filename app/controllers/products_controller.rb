@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
   def show 
   	update_product_inventory
   	@customer_id = params[:cid]
-	@added_product = Product.where(:variant_id => params[:id]).all
+	@added_product = Product.where(:variant_id => params[:id]).first
 	check_for_product
   end
   def check_for_product
@@ -22,6 +22,7 @@ class ProductsController < ApplicationController
 				if @found_product == false
 					add_product
 			  	else
+			  		flash[:notice] = @added_product.title + " is already on your wishlist."
 			  		redirect_to '/wishlist/' + params[:cid]
 			  	end
 			end
