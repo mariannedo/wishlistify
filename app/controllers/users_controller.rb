@@ -23,6 +23,7 @@ class UsersController < ApplicationController
   	@user = User.find_by customer_id: params[:id]
     if(@user) 
       @user_products = UsersProduct.where(:user_id => params[:id]).all
+      check_orders
     else
       create
     end
@@ -30,5 +31,10 @@ class UsersController < ApplicationController
 
   def update 
 
+  end
+
+  def check_orders
+    @customer = ShopifyAPI::Customer.find(params[:id])
+    @orders = @customer.orders
   end
 end

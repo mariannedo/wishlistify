@@ -147,6 +147,7 @@ div.product {
 	border: 0; 
 	font-size: 13px; 
 	padding: 10px 20px;
+	width: 90px;
 }
 .btn:hover, 
 #Products input[type="submit"]:hover { 
@@ -155,4 +156,11 @@ div.product {
 .remove, 
 .remove:hover { 
 	color: #990000;
+	font-size: 0.9em; 
+}
+.ordered { 
+	display: block; 
+	font-style: italic; 
+	font-size: 0.9em; 
+	margin-top: 5px; 
 }

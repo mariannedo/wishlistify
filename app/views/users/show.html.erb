@@ -3,7 +3,7 @@
 <% if @user_products.count > 0 %>
 	<table id="Products">
 		<tr>
-			<th>Product</th>
+			<th colspan="2">Product</th>
 			<th># in stock</th>
 			<th>Price</th>
 			<th></th>
@@ -12,12 +12,27 @@
 		</tr>
 		<% @user_products.each_with_index do |p, index| %>
 			<% product = Product.find_by variant_id: p.product_id %>
+			<% ordered = false %>
 			<tr<% if index % 2 != 0 %> class="odd"<% end %>>
-				<td>
+				<td class="center">
 					<div class="img-outer">
 						<img src="<%= product.image_url %>" alt="<%= product.title %>"/>
 					</div>
+				</td>
+				<td>
 					<%= product.title %>
+
+					<% @orders.each do |order| %>
+						<% order.line_items.each do |line_item| %>
+							<% if(product.variant_id == line_item.variant_id) %>
+							<% ordered = true %>
+							<span class="ordered">
+								<% time = DateTime.iso8601(order.created_at) %>
+								<%= time.strftime("Ordered on %m/%d/%Y") %>
+							</span>
+							<% end %>
+						<% end %>
+					<% end %>
 				</td>
 				<td class="center">
 					<% if product.quantity > 0 %>
@@ -32,7 +47,11 @@
 					<% if product.quantity > 0 %>
 						<form action="<%= store_url %>cart/add" method="post">
 							<input type="hidden" name="id" value="<%= product.variant_id %>"/>
-							<input type="submit" value="Buy"/>
+							<% if(ordered == true) %>
+								<input type="submit" value="Reorder"/>
+							<% else %>
+								<input type="submit" value="Buy"/>
+							<% end %>
 						</form>
 					<% end %>
 				</td>
