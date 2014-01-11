@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140110010822) do
+ActiveRecord::Schema.define(version: 20140110013314) do
 
   create_table "products", force: true do |t|
     t.string   "title"
@@ -36,8 +36,10 @@ ActiveRecord::Schema.define(version: 20140110010822) do
   end
 
   create_table "users_products", force: true do |t|
-    t.integer "user_id"
-    t.integer "product_id"
+    t.integer  "user_id"
+    t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

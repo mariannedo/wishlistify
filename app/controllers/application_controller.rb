@@ -29,4 +29,20 @@ class ApplicationController < ActionController::Base
       end
     end
   end
+
+  def update_product_inventory
+    products = ShopifyAPI::Product.all 
+    products.each do |product| 
+      product.attributes[:variants].each do |variant|
+        existing_product = Product.find_by(variant_id: variant.id)
+        if(existing_product)
+          if(variant.inventory_management == 'shopify') 
+            if(existing_product.quantity != variant.inventory_quantity)
+              update_product = existing_product.update(quantity: variant.inventory_quantity)
+            end
+          end
+        end
+      end
+    end
+  end
 end

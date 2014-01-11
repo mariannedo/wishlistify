@@ -33,4 +33,6 @@ class ProductsController < ApplicationController
   def add_product
   	@new_wish = UsersProduct.create(product_id: params[:id], user_id: params[:cid])
   end
+  
+  update_product_inventory
 end
