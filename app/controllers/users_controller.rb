@@ -30,6 +30,4 @@ class UsersController < ApplicationController
   def update 
 
   end
-
-  update_product_inventory
 end
