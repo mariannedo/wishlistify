@@ -159,6 +159,7 @@ div.product {
 .btn:hover, 
 #Products input[type="submit"]:hover { 
 	background: #0C526F;
+	color: #fff; 
 }
 .remove, 
 .remove:hover { 
