@@ -3,6 +3,7 @@
 <head>
   <title>Wishlistify</title>
   <link href='http://fonts.googleapis.com/css?family=Merriweather:300,400,600,700|Montserrat:300,400,600,700' rel='stylesheet' type='text/css'>
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -16,10 +17,13 @@
 	<nav id="Menu">
 		<div class="container">
 			<a href="<%= store_url %>">Visit Outdoor Apparel Store</a>
+
+			<a href="<%= store_url %>account">View Account</a>
+
 			<div id="Search">
 				<%= form_tag store_url + 'search', method: :get do %>
-				<%= text_field_tag 'q' %>
-				<%= submit_tag "Search" %>
+				<%= text_field_tag 'q', '', placeholder: 'Search products' %>
+				<button type="submit" class="icon"><i class='fa fa-search'></i></button>
 				<% end %>
 			</div>
 		</div>

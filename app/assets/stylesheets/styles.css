@@ -61,6 +61,10 @@ a:hover {
 #Search input[type="text"] { 
 	border: 1px solid #e4e4e4; 
 }
+#Search .icon { 
+	border: 0; 
+	background: transparent; 
+}
 
 /***** HOME *****/ 
 
@@ -79,11 +83,13 @@ form label {
 }
 form input[type="text"], 
 form input[type="password"] { 
-	width: 340px; 
+	width: 200px; 
 	border: 1px solid #e4e4e4;
 	background: #f8f8f8; 
 	padding: 5px 8px;
 	outline: none; 
+	font-family: 'Merriweather', georgia, times new roman, serif;
+	font-size: 12px; 
 }
 form .form-field { 
 	margin-bottom: 20px; 
@@ -143,11 +149,12 @@ div.product {
 #Products input[type="submit"] { 
 	background: #0C628F; 
 	color: #fff; 
-	font-family: 'Merriweather', georgia, times new roman, serif;
+	font-family: 'Montserrat', arial, helvetica, sans-serif; 
 	border: 0; 
-	font-size: 13px; 
+	font-size: 14px; 
 	padding: 10px 20px;
-	width: 90px;
+	min-width: 100px;
+	display: inline-block;
 }
 .btn:hover, 
 #Products input[type="submit"]:hover { 
@@ -169,6 +176,8 @@ div.product {
 
 .notice, 
 .alert { 
-	font-style: italic; 
 	margin-bottom: 2em; 
+	border: 1px solid #ff6666; 
+	background: #ffeeee;
+	padding: 20px; 
 }
