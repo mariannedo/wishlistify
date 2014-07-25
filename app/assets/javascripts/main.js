@@ -134,6 +134,31 @@ _utf8_decode : function (utftext) {
 
 }
 
+$(document).ready(function() { 
+    $('.fake-order').on('click', function() { 
+        $.ajax({
+            url: 'http://outdoor-apparel.myshopify.com/admin/orders.json',
+            type: 'POST',
+            contentType: 'application/json',
+            data: { json: JSON.stringify(
+                {
+                  "order": {
+                    "line_items": [
+                      {
+                        "variant_id": 524806325,
+                        "quantity": 5
+                      }
+                    ]
+                  }
+                }
+            )},
+            dataType: 'jsonp'
+        });
+        alert("json posted!");
+        //return false; 
+    }); 
+}); 
+
 /*$(document).ready(function() { 
 	$("#ShopifyLogin").submit(function(e)
 	{
