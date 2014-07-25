@@ -11,10 +11,6 @@ class ApplicationController < ActionController::Base
           user = User.create(first_name: customer.first_name, last_name: customer.last_name, email: customer.email, customer_id: customer.id)
         end
     end
-
-    new_customer = ShopifyAPI::Customer.new
-    new_customer.first_name = 'Jimbo'
-    new_customer.last_name = 'Jones'
   end
 
   def import_new_products
@@ -48,6 +44,21 @@ class ApplicationController < ActionController::Base
         end
       end
     end
+  end
+
+  def create_new_orders
+    # 5 xl orange shirts
+    #new_order = ShopifyAPI::Order.new({"line_items"=>[{"variant_id"=> 524806325,"quantity"=> 5 }]})
+    #new_order.save
+
+    # 3 med green shirts. fulfilled
+    new_order2 = ShopifyAPI::Order.new({"email"=>"marianne.do@barrelny.com.com","fulfillment_status"=>"fulfilled","send_receipt"=>true,"send_fulfillment_receipt"=>true,"line_items"=>[{"variant_id"=> 443635021,"quantity"=> 3 }]})
+    new_order2.save
+  end
+
+  def create_new_customer
+    # new_customer = ShopifyAPI::Customer.new({'first_name' => 'Steve','last_name' => 'Lastnameson','email' => 'steve@email.com','addresses' => [{'address1' => '123 Oak St','city' =>'Ottawa', 'province'=>'ON', 'phone'=>'555-1212', 'zip'=>'123ABC', 'last_name'=>'Lastnameson', 'first_name'=>'Mother', 'country'=>'CA' } ], 'send_email_invite'=>true})
+    # new_customer.save
   end
   
 end
