@@ -137,23 +137,13 @@ _utf8_decode : function (utftext) {
 $(function() { 
     $('.fake-order').on('click', function() { 
         $.ajax({
-            type: "POST",
-            url: 'http://outdoor-apparel.myshopify.com/admin/orders.json?callback=?',
-            //contentType: 'application/json',
-            data: 
-                {
-                  "order": {
-                    "line_items": [
-                      {
-                        "variant_id": 524806325,
-                        "quantity": 5
-                      }
-                    ]
-                  }
-                }
-            ,
+            type: "GET",
+            url: 'http://outdoor-apparel.myshopify.com/admin/orders.json', 
             dataType: 'jsonp', 
-            crossDomain: true
+            //contentType: 'application/json',
+            success: function(data) { 
+                console.log(data); 
+            }
         });
         return false; 
     }); 

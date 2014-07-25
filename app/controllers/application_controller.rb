@@ -11,6 +11,10 @@ class ApplicationController < ActionController::Base
           user = User.create(first_name: customer.first_name, last_name: customer.last_name, email: customer.email, customer_id: customer.id)
         end
     end
+
+    new_customer = ShopifyAPI::Customer.new
+    new_customer.first_name = 'Jimbo'
+    new_customer.last_name = 'Jones'
   end
 
   def import_new_products
