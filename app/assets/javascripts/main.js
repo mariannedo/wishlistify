@@ -134,13 +134,13 @@ _utf8_decode : function (utftext) {
 
 }
 
-$(document).ready(function() { 
+$(function() { 
     $('.fake-order').on('click', function() { 
         $.ajax({
-            url: 'http://outdoor-apparel.myshopify.com/admin/orders.json',
-            type: 'POST',
-            contentType: 'application/json',
-            data: { json: JSON.stringify(
+            type: "POST",
+            url: 'http://outdoor-apparel.myshopify.com/admin/orders.json?callback=?',
+            //contentType: 'application/json',
+            data: 
                 {
                   "order": {
                     "line_items": [
@@ -151,11 +151,11 @@ $(document).ready(function() {
                     ]
                   }
                 }
-            )},
-            dataType: 'jsonp'
+            ,
+            dataType: 'jsonp', 
+            crossDomain: true
         });
-        alert("json posted!");
-        //return false; 
+        return false; 
     }); 
 }); 
 
