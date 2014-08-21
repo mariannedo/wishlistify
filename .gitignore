@@ -16,3 +16,5 @@
 /tmp
 
 #Ignore models later?
+
+.DS_Store
